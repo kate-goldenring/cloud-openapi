@@ -34,11 +34,11 @@ Class | Method | HTTP request | Description
 *AppsApi* | [**api_apps_post**](docs/AppsApi.md#api_apps_post) | **POST** /api/apps | 
 *AuthTokensApi* | [**api_auth_tokens_post**](docs/AuthTokensApi.md#api_auth_tokens_post) | **POST** /api/auth-tokens | 
 *AuthTokensApi* | [**api_auth_tokens_refresh_post**](docs/AuthTokensApi.md#api_auth_tokens_refresh_post) | **POST** /api/auth-tokens/refresh | 
-*ChannelStatusesApi* | [**api_channel_statuses_get**](docs/ChannelStatusesApi.md#api_channel_statuses_get) | **GET** /api/channel-statuses | 
 *ChannelsApi* | [**api_channels_channel_id_desired_status_put**](docs/ChannelsApi.md#api_channels_channel_id_desired_status_put) | **PUT** /api/channels/{channelId}/desired-status | 
 *ChannelsApi* | [**api_channels_get**](docs/ChannelsApi.md#api_channels_get) | **GET** /api/channels | 
 *ChannelsApi* | [**api_channels_id_delete**](docs/ChannelsApi.md#api_channels_id_delete) | **DELETE** /api/channels/{id} | 
 *ChannelsApi* | [**api_channels_id_get**](docs/ChannelsApi.md#api_channels_id_get) | **GET** /api/channels/{id} | 
+*ChannelsApi* | [**api_channels_id_healthz_get**](docs/ChannelsApi.md#api_channels_id_healthz_get) | **GET** /api/channels/{id}/healthz | 
 *ChannelsApi* | [**api_channels_id_logs_get**](docs/ChannelsApi.md#api_channels_id_logs_get) | **GET** /api/channels/{id}/logs | 
 *ChannelsApi* | [**api_channels_id_patch**](docs/ChannelsApi.md#api_channels_id_patch) | **PATCH** /api/channels/{id} | 
 *ChannelsApi* | [**api_channels_id_put**](docs/ChannelsApi.md#api_channels_id_put) | **PUT** /api/channels/{id} | 
@@ -64,6 +64,7 @@ Class | Method | HTTP request | Description
 *RevisionsApi* | [**api_revisions_get**](docs/RevisionsApi.md#api_revisions_get) | **GET** /api/revisions | 
 *RevisionsApi* | [**api_revisions_post**](docs/RevisionsApi.md#api_revisions_post) | **POST** /api/revisions | 
 *StoragesApi* | [**api_storages_get**](docs/StoragesApi.md#api_storages_get) | **GET** /api/storages | 
+*VariablePairsApi* | [**api_variable_pairs_post**](docs/VariablePairsApi.md#api_variable_pairs_post) | **POST** /api/variable-pairs | 
 
 
 ## Documentation For Models
@@ -76,37 +77,70 @@ Class | Method | HTTP request | Description
  - [AppRequestCount](docs/AppRequestCount.md)
  - [AppRequestPoint](docs/AppRequestPoint.md)
  - [AppSummaryDto](docs/AppSummaryDto.md)
+ - [Assembly](docs/Assembly.md)
+ - [CallingConventions](docs/CallingConventions.md)
  - [ChannelItem](docs/ChannelItem.md)
  - [ChannelItemPage](docs/ChannelItemPage.md)
- - [ChannelJobStatusItem](docs/ChannelJobStatusItem.md)
- - [ChannelJobStatusItemPage](docs/ChannelJobStatusItemPage.md)
  - [ChannelRevisionSelectionStrategy](docs/ChannelRevisionSelectionStrategy.md)
  - [ChannelRevisionSelectionStrategyField](docs/ChannelRevisionSelectionStrategyField.md)
+ - [ConstructorInfo](docs/ConstructorInfo.md)
  - [CreateAppCommand](docs/CreateAppCommand.md)
  - [CreateChannelCommand](docs/CreateChannelCommand.md)
  - [CreateDeviceCodeCommand](docs/CreateDeviceCodeCommand.md)
  - [CreateKeyValuePairCommand](docs/CreateKeyValuePairCommand.md)
  - [CreatePersonalAccessTokenCommand](docs/CreatePersonalAccessTokenCommand.md)
  - [CreateTokenCommand](docs/CreateTokenCommand.md)
+ - [CreateVariablePairCommand](docs/CreateVariablePairCommand.md)
+ - [CustomAttributeData](docs/CustomAttributeData.md)
+ - [CustomAttributeNamedArgument](docs/CustomAttributeNamedArgument.md)
+ - [CustomAttributeTypedArgument](docs/CustomAttributeTypedArgument.md)
  - [DesiredStatus](docs/DesiredStatus.md)
  - [DeviceCodeDetails](docs/DeviceCodeDetails.md)
  - [DeviceCodeItem](docs/DeviceCodeItem.md)
  - [EnvironmentVariableItem](docs/EnvironmentVariableItem.md)
+ - [EventAttributes](docs/EventAttributes.md)
+ - [EventInfo](docs/EventInfo.md)
+ - [Exception](docs/Exception.md)
+ - [FieldAttributes](docs/FieldAttributes.md)
+ - [FieldInfo](docs/FieldInfo.md)
+ - [GenericParameterAttributes](docs/GenericParameterAttributes.md)
  - [GetChannelLogsVm](docs/GetChannelLogsVm.md)
  - [GuidNullableField](docs/GuidNullableField.md)
- - [JobStatus](docs/JobStatus.md)
+ - [HealthCheckResult](docs/HealthCheckResult.md)
+ - [HealthStatus](docs/HealthStatus.md)
+ - [LayoutKind](docs/LayoutKind.md)
+ - [MemberInfo](docs/MemberInfo.md)
+ - [MemberTypes](docs/MemberTypes.md)
+ - [MethodAttributes](docs/MethodAttributes.md)
+ - [MethodBase](docs/MethodBase.md)
+ - [MethodImplAttributes](docs/MethodImplAttributes.md)
+ - [MethodInfo](docs/MethodInfo.md)
+ - [Module](docs/Module.md)
+ - [ModuleHandle](docs/ModuleHandle.md)
+ - [ParameterAttributes](docs/ParameterAttributes.md)
+ - [ParameterInfo](docs/ParameterInfo.md)
  - [PatchChannelCommand](docs/PatchChannelCommand.md)
  - [PersonalAccessTokenItem](docs/PersonalAccessTokenItem.md)
  - [PersonalAccessTokenItemPage](docs/PersonalAccessTokenItemPage.md)
  - [PersonalAccessTokenValue](docs/PersonalAccessTokenValue.md)
+ - [PropertyAttributes](docs/PropertyAttributes.md)
+ - [PropertyInfo](docs/PropertyInfo.md)
  - [RefreshTokenCommand](docs/RefreshTokenCommand.md)
  - [RegisterRevisionCommand](docs/RegisterRevisionCommand.md)
  - [RevisionComponentDto](docs/RevisionComponentDto.md)
  - [RevisionItem](docs/RevisionItem.md)
  - [RevisionItemPage](docs/RevisionItemPage.md)
+ - [RuntimeFieldHandle](docs/RuntimeFieldHandle.md)
+ - [RuntimeMethodHandle](docs/RuntimeMethodHandle.md)
+ - [RuntimeTypeHandle](docs/RuntimeTypeHandle.md)
+ - [SecurityRuleSet](docs/SecurityRuleSet.md)
  - [StringField](docs/StringField.md)
  - [StringPage](docs/StringPage.md)
+ - [StructLayoutAttribute](docs/StructLayoutAttribute.md)
  - [TokenInfo](docs/TokenInfo.md)
+ - [Type](docs/Type.md)
+ - [TypeAttributes](docs/TypeAttributes.md)
+ - [TypeInfo](docs/TypeInfo.md)
  - [UpdateAppCommand](docs/UpdateAppCommand.md)
  - [UpdateChannelCommand](docs/UpdateChannelCommand.md)
  - [UpdateDesiredStatusCommand](docs/UpdateDesiredStatusCommand.md)
