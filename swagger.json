@@ -1549,6 +1549,126 @@
         }
       }
     },
+    "/api/payments/setup-payment-intent": {
+      "post": {
+        "tags": [
+          "payments"
+        ],
+        "parameters": [
+          {
+            "name": "Api-Version",
+            "in": "header",
+            "description": "The requested API version",
+            "schema": {
+              "type": "string",
+              "default": "1.0"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/PaymentIntentResponse"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PaymentIntentResponse"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PaymentIntentResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/payments/setup-checkout": {
+      "post": {
+        "tags": [
+          "payments"
+        ],
+        "parameters": [
+          {
+            "name": "Api-Version",
+            "in": "header",
+            "description": "The requested API version",
+            "schema": {
+              "type": "string",
+              "default": "1.0"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/PaymentIntegrationUrl"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PaymentIntegrationUrl"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PaymentIntegrationUrl"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/payments/customer-portal": {
+      "get": {
+        "tags": [
+          "payments"
+        ],
+        "parameters": [
+          {
+            "name": "Api-Version",
+            "in": "header",
+            "description": "The requested API version",
+            "schema": {
+              "type": "string",
+              "default": "1.0"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/PaymentIntegrationUrl"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PaymentIntegrationUrl"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PaymentIntegrationUrl"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/api/personal-access-tokens": {
       "post": {
         "tags": [
@@ -1987,7 +2107,30 @@
         }
       }
     },
-    "/api/variable-pairs": {
+    "/stripe-events/customer-subscription-update": {
+      "post": {
+        "tags": [
+          "stripe-events"
+        ],
+        "parameters": [
+          {
+            "name": "Api-Version",
+            "in": "header",
+            "description": "The requested API version",
+            "schema": {
+              "type": "string",
+              "default": "1.0"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/variable-pairs/create": {
       "post": {
         "tags": [
           "variable-pairs"
@@ -2034,6 +2177,119 @@
           }
         }
       }
+    },
+    "/api/variable-pairs/delete": {
+      "post": {
+        "tags": [
+          "variable-pairs"
+        ],
+        "parameters": [
+          {
+            "name": "Api-Version",
+            "in": "header",
+            "description": "The requested API version",
+            "schema": {
+              "type": "string",
+              "default": "1.0"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json-patch+json": {
+              "schema": {
+                "$ref": "#/components/schemas/DeleteVariablePairCommand"
+              }
+            },
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/DeleteVariablePairCommand"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/DeleteVariablePairCommand"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/DeleteVariablePairCommand"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/variable-pairs/list": {
+      "get": {
+        "tags": [
+          "variable-pairs"
+        ],
+        "parameters": [
+          {
+            "name": "Api-Version",
+            "in": "header",
+            "description": "The requested API version",
+            "schema": {
+              "type": "string",
+              "default": "1.0"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json-patch+json": {
+              "schema": {
+                "$ref": "#/components/schemas/ListVariablesCommand"
+              }
+            },
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ListVariablesCommand"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ListVariablesCommand"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/ListVariablesCommand"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/VariablesList"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/VariablesList"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/VariablesList"
+                }
+              }
+            }
+          }
+        }
+      }
     }
   },
   "components": {
@@ -2062,7 +2318,8 @@
       "AccountProvider": {
         "enum": [
           "GitHub",
-          "DeviceFlow"
+          "DeviceFlow",
+          "GitHubPersonalToken"
         ],
         "type": "string"
       },
@@ -2522,6 +2779,24 @@
         },
         "additionalProperties": false
       },
+      "DeleteVariablePairCommand": {
+        "required": [
+          "appId",
+          "variable"
+        ],
+        "type": "object",
+        "properties": {
+          "appId": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "variable": {
+            "minLength": 1,
+            "type": "string"
+          }
+        },
+        "additionalProperties": false
+      },
       "DesiredStatus": {
         "enum": [
           "Running",
@@ -2629,6 +2904,19 @@
         },
         "additionalProperties": false
       },
+      "ListVariablesCommand": {
+        "required": [
+          "appId"
+        ],
+        "type": "object",
+        "properties": {
+          "appId": {
+            "type": "string",
+            "format": "uuid"
+          }
+        },
+        "additionalProperties": false
+      },
       "PatchChannelCommand": {
         "type": "object",
         "properties": {
@@ -2653,6 +2941,24 @@
           },
           "activeRevisionId": {
             "$ref": "#/components/schemas/GuidNullableField"
+          }
+        },
+        "additionalProperties": false
+      },
+      "PaymentIntegrationUrl": {
+        "type": "object",
+        "properties": {
+          "url": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false
+      },
+      "PaymentIntentResponse": {
+        "type": "object",
+        "properties": {
+          "clientSecret": {
+            "type": "string"
           }
         },
         "additionalProperties": false
@@ -3028,6 +3334,21 @@
             "type": "array",
             "items": {
               "$ref": "#/components/schemas/UpdateEnvironmentVariableDto"
+            }
+          }
+        },
+        "additionalProperties": false
+      },
+      "VariablesList": {
+        "required": [
+          "vars"
+        ],
+        "type": "object",
+        "properties": {
+          "vars": {
+            "type": "array",
+            "items": {
+              "type": "string"
             }
           }
         },

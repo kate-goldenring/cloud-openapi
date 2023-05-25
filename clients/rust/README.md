@@ -56,6 +56,9 @@ Class | Method | HTTP request | Description
 *OciApi* | [**api_oci_name_blobs_uploads_post**](docs/OciApi.md#api_oci_name_blobs_uploads_post) | **POST** /api/oci/{name}/blobs/uploads | 
 *OciApi* | [**api_oci_name_manifests_reference_head**](docs/OciApi.md#api_oci_name_manifests_reference_head) | **HEAD** /api/oci/{name}/manifests/{reference} | 
 *OciApi* | [**api_oci_name_manifests_reference_put**](docs/OciApi.md#api_oci_name_manifests_reference_put) | **PUT** /api/oci/{name}/manifests/{reference} | 
+*PaymentsApi* | [**api_payments_customer_portal_get**](docs/PaymentsApi.md#api_payments_customer_portal_get) | **GET** /api/payments/customer-portal | 
+*PaymentsApi* | [**api_payments_setup_checkout_post**](docs/PaymentsApi.md#api_payments_setup_checkout_post) | **POST** /api/payments/setup-checkout | 
+*PaymentsApi* | [**api_payments_setup_payment_intent_post**](docs/PaymentsApi.md#api_payments_setup_payment_intent_post) | **POST** /api/payments/setup-payment-intent | 
 *PersonalAccessTokensApi* | [**api_personal_access_tokens_get**](docs/PersonalAccessTokensApi.md#api_personal_access_tokens_get) | **GET** /api/personal-access-tokens | 
 *PersonalAccessTokensApi* | [**api_personal_access_tokens_id_delete**](docs/PersonalAccessTokensApi.md#api_personal_access_tokens_id_delete) | **DELETE** /api/personal-access-tokens/{id} | 
 *PersonalAccessTokensApi* | [**api_personal_access_tokens_post**](docs/PersonalAccessTokensApi.md#api_personal_access_tokens_post) | **POST** /api/personal-access-tokens | 
@@ -65,7 +68,10 @@ Class | Method | HTTP request | Description
 *RevisionsApi* | [**api_revisions_get**](docs/RevisionsApi.md#api_revisions_get) | **GET** /api/revisions | 
 *RevisionsApi* | [**api_revisions_post**](docs/RevisionsApi.md#api_revisions_post) | **POST** /api/revisions | 
 *StoragesApi* | [**api_storages_get**](docs/StoragesApi.md#api_storages_get) | **GET** /api/storages | 
-*VariablePairsApi* | [**api_variable_pairs_post**](docs/VariablePairsApi.md#api_variable_pairs_post) | **POST** /api/variable-pairs | 
+*StripeEventsApi* | [**stripe_events_customer_subscription_update_post**](docs/StripeEventsApi.md#stripe_events_customer_subscription_update_post) | **POST** /stripe-events/customer-subscription-update | 
+*VariablePairsApi* | [**api_variable_pairs_create_post**](docs/VariablePairsApi.md#api_variable_pairs_create_post) | **POST** /api/variable-pairs/create | 
+*VariablePairsApi* | [**api_variable_pairs_delete_post**](docs/VariablePairsApi.md#api_variable_pairs_delete_post) | **POST** /api/variable-pairs/delete | 
+*VariablePairsApi* | [**api_variable_pairs_list_get**](docs/VariablePairsApi.md#api_variable_pairs_list_get) | **GET** /api/variable-pairs/list | 
 
 
 ## Documentation For Models
@@ -92,6 +98,7 @@ Class | Method | HTTP request | Description
  - [CreatePersonalAccessTokenCommand](docs/CreatePersonalAccessTokenCommand.md)
  - [CreateTokenCommand](docs/CreateTokenCommand.md)
  - [CreateVariablePairCommand](docs/CreateVariablePairCommand.md)
+ - [DeleteVariablePairCommand](docs/DeleteVariablePairCommand.md)
  - [DesiredStatus](docs/DesiredStatus.md)
  - [DeviceCodeDetails](docs/DeviceCodeDetails.md)
  - [DeviceCodeItem](docs/DeviceCodeItem.md)
@@ -99,7 +106,10 @@ Class | Method | HTTP request | Description
  - [GetChannelLogsVm](docs/GetChannelLogsVm.md)
  - [GuidNullableField](docs/GuidNullableField.md)
  - [HealthCheckResult](docs/HealthCheckResult.md)
+ - [ListVariablesCommand](docs/ListVariablesCommand.md)
  - [PatchChannelCommand](docs/PatchChannelCommand.md)
+ - [PaymentIntegrationUrl](docs/PaymentIntegrationUrl.md)
+ - [PaymentIntentResponse](docs/PaymentIntentResponse.md)
  - [PersonalAccessTokenItem](docs/PersonalAccessTokenItem.md)
  - [PersonalAccessTokenItemPage](docs/PersonalAccessTokenItemPage.md)
  - [PersonalAccessTokenValue](docs/PersonalAccessTokenValue.md)
@@ -116,6 +126,7 @@ Class | Method | HTTP request | Description
  - [UpdateDesiredStatusCommand](docs/UpdateDesiredStatusCommand.md)
  - [UpdateEnvironmentVariableDto](docs/UpdateEnvironmentVariableDto.md)
  - [UpdateEnvironmentVariableDtoListField](docs/UpdateEnvironmentVariableDtoListField.md)
+ - [VariablesList](docs/VariablesList.md)
 
 
 To get access to the crate's generated documentation, use:

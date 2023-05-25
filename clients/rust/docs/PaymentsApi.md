@@ -1,18 +1,18 @@
-# \VariablePairsApi
+# \PaymentsApi
 
 All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**api_variable_pairs_create_post**](VariablePairsApi.md#api_variable_pairs_create_post) | **POST** /api/variable-pairs/create | 
-[**api_variable_pairs_delete_post**](VariablePairsApi.md#api_variable_pairs_delete_post) | **POST** /api/variable-pairs/delete | 
-[**api_variable_pairs_list_get**](VariablePairsApi.md#api_variable_pairs_list_get) | **GET** /api/variable-pairs/list | 
+[**api_payments_customer_portal_get**](PaymentsApi.md#api_payments_customer_portal_get) | **GET** /api/payments/customer-portal | 
+[**api_payments_setup_checkout_post**](PaymentsApi.md#api_payments_setup_checkout_post) | **POST** /api/payments/setup-checkout | 
+[**api_payments_setup_payment_intent_post**](PaymentsApi.md#api_payments_setup_payment_intent_post) | **POST** /api/payments/setup-payment-intent | 
 
 
 
-## api_variable_pairs_create_post
+## api_payments_customer_portal_get
 
-> api_variable_pairs_create_post(create_variable_pair_command, api_version)
+> crate::models::PaymentIntegrationUrl api_payments_customer_portal_get(api_version)
 
 
 ### Parameters
@@ -20,12 +20,11 @@ Method | HTTP request | Description
 
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
-**create_variable_pair_command** | [**CreateVariablePairCommand**](CreateVariablePairCommand.md) |  | [required] |
 **api_version** | Option<**String**> | The requested API version |  |[default to 1.0]
 
 ### Return type
 
- (empty response body)
+[**crate::models::PaymentIntegrationUrl**](PaymentIntegrationUrl.md)
 
 ### Authorization
 
@@ -33,15 +32,15 @@ Name | Type | Description  | Required | Notes
 
 ### HTTP request headers
 
-- **Content-Type**: application/json-patch+json, application/json, text/json, application/*+json
-- **Accept**: Not defined
+- **Content-Type**: Not defined
+- **Accept**: text/plain, application/json, text/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 
-## api_variable_pairs_delete_post
+## api_payments_setup_checkout_post
 
-> api_variable_pairs_delete_post(delete_variable_pair_command, api_version)
+> crate::models::PaymentIntegrationUrl api_payments_setup_checkout_post(api_version)
 
 
 ### Parameters
@@ -49,12 +48,11 @@ Name | Type | Description  | Required | Notes
 
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
-**delete_variable_pair_command** | [**DeleteVariablePairCommand**](DeleteVariablePairCommand.md) |  | [required] |
 **api_version** | Option<**String**> | The requested API version |  |[default to 1.0]
 
 ### Return type
 
- (empty response body)
+[**crate::models::PaymentIntegrationUrl**](PaymentIntegrationUrl.md)
 
 ### Authorization
 
@@ -62,15 +60,15 @@ Name | Type | Description  | Required | Notes
 
 ### HTTP request headers
 
-- **Content-Type**: application/json-patch+json, application/json, text/json, application/*+json
-- **Accept**: Not defined
+- **Content-Type**: Not defined
+- **Accept**: text/plain, application/json, text/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 
-## api_variable_pairs_list_get
+## api_payments_setup_payment_intent_post
 
-> crate::models::VariablesList api_variable_pairs_list_get(list_variables_command, api_version)
+> crate::models::PaymentIntentResponse api_payments_setup_payment_intent_post(api_version)
 
 
 ### Parameters
@@ -78,12 +76,11 @@ Name | Type | Description  | Required | Notes
 
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
-**list_variables_command** | [**ListVariablesCommand**](ListVariablesCommand.md) |  | [required] |
 **api_version** | Option<**String**> | The requested API version |  |[default to 1.0]
 
 ### Return type
 
-[**crate::models::VariablesList**](VariablesList.md)
+[**crate::models::PaymentIntentResponse**](PaymentIntentResponse.md)
 
 ### Authorization
 
@@ -91,7 +88,7 @@ Name | Type | Description  | Required | Notes
 
 ### HTTP request headers
 
-- **Content-Type**: application/json-patch+json, application/json, text/json, application/*+json
+- **Content-Type**: Not defined
 - **Accept**: text/plain, application/json, text/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
