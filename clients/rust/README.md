@@ -65,6 +65,8 @@ Class | Method | HTTP request | Description
 *RevisionsApi* | [**api_revisions_get**](docs/RevisionsApi.md#api_revisions_get) | **GET** /api/revisions | 
 *RevisionsApi* | [**api_revisions_post**](docs/RevisionsApi.md#api_revisions_post) | **POST** /api/revisions | 
 *StoragesApi* | [**api_storages_get**](docs/StoragesApi.md#api_storages_get) | **GET** /api/storages | 
+*VariablePairsApi* | [**api_variable_pairs_delete**](docs/VariablePairsApi.md#api_variable_pairs_delete) | **DELETE** /api/variable-pairs | 
+*VariablePairsApi* | [**api_variable_pairs_get**](docs/VariablePairsApi.md#api_variable_pairs_get) | **GET** /api/variable-pairs | 
 *VariablePairsApi* | [**api_variable_pairs_post**](docs/VariablePairsApi.md#api_variable_pairs_post) | **POST** /api/variable-pairs | 
 
 
@@ -92,11 +94,13 @@ Class | Method | HTTP request | Description
  - [CreatePersonalAccessTokenCommand](docs/CreatePersonalAccessTokenCommand.md)
  - [CreateTokenCommand](docs/CreateTokenCommand.md)
  - [CreateVariablePairCommand](docs/CreateVariablePairCommand.md)
+ - [DeleteVariablePairCommand](docs/DeleteVariablePairCommand.md)
  - [DesiredStatus](docs/DesiredStatus.md)
  - [DeviceCodeDetails](docs/DeviceCodeDetails.md)
  - [DeviceCodeItem](docs/DeviceCodeItem.md)
  - [EnvironmentVariableItem](docs/EnvironmentVariableItem.md)
  - [GetChannelLogsVm](docs/GetChannelLogsVm.md)
+ - [GetVariablesQuery](docs/GetVariablesQuery.md)
  - [GuidNullableField](docs/GuidNullableField.md)
  - [HealthCheckResult](docs/HealthCheckResult.md)
  - [PatchChannelCommand](docs/PatchChannelCommand.md)
@@ -116,6 +120,7 @@ Class | Method | HTTP request | Description
  - [UpdateDesiredStatusCommand](docs/UpdateDesiredStatusCommand.md)
  - [UpdateEnvironmentVariableDto](docs/UpdateEnvironmentVariableDto.md)
  - [UpdateEnvironmentVariableDtoListField](docs/UpdateEnvironmentVariableDtoListField.md)
+ - [VariablesList](docs/VariablesList.md)
 
 
 To get access to the crate's generated documentation, use:

@@ -2033,6 +2033,115 @@
             "description": "Success"
           }
         }
+      },
+      "delete": {
+        "tags": [
+          "variable-pairs"
+        ],
+        "parameters": [
+          {
+            "name": "Api-Version",
+            "in": "header",
+            "description": "The requested API version",
+            "schema": {
+              "type": "string",
+              "default": "1.0"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json-patch+json": {
+              "schema": {
+                "$ref": "#/components/schemas/DeleteVariablePairCommand"
+              }
+            },
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/DeleteVariablePairCommand"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/DeleteVariablePairCommand"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/DeleteVariablePairCommand"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      },
+      "get": {
+        "tags": [
+          "variable-pairs"
+        ],
+        "parameters": [
+          {
+            "name": "Api-Version",
+            "in": "header",
+            "description": "The requested API version",
+            "schema": {
+              "type": "string",
+              "default": "1.0"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json-patch+json": {
+              "schema": {
+                "$ref": "#/components/schemas/GetVariablesQuery"
+              }
+            },
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/GetVariablesQuery"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/GetVariablesQuery"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/GetVariablesQuery"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/VariablesList"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/VariablesList"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/VariablesList"
+                }
+              }
+            }
+          }
+        }
       }
     }
   },
@@ -2062,7 +2171,8 @@
       "AccountProvider": {
         "enum": [
           "GitHub",
-          "DeviceFlow"
+          "DeviceFlow",
+          "GitHubPersonalToken"
         ],
         "type": "string"
       },
@@ -2522,6 +2632,24 @@
         },
         "additionalProperties": false
       },
+      "DeleteVariablePairCommand": {
+        "required": [
+          "appId",
+          "variable"
+        ],
+        "type": "object",
+        "properties": {
+          "appId": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "variable": {
+            "minLength": 1,
+            "type": "string"
+          }
+        },
+        "additionalProperties": false
+      },
       "DesiredStatus": {
         "enum": [
           "Running",
@@ -2605,6 +2733,19 @@
             "items": {
               "type": "string"
             }
+          }
+        },
+        "additionalProperties": false
+      },
+      "GetVariablesQuery": {
+        "required": [
+          "appId"
+        ],
+        "type": "object",
+        "properties": {
+          "appId": {
+            "type": "string",
+            "format": "uuid"
           }
         },
         "additionalProperties": false
@@ -3028,6 +3169,21 @@
             "type": "array",
             "items": {
               "$ref": "#/components/schemas/UpdateEnvironmentVariableDto"
+            }
+          }
+        },
+        "additionalProperties": false
+      },
+      "VariablesList": {
+        "required": [
+          "vars"
+        ],
+        "type": "object",
+        "properties": {
+          "vars": {
+            "type": "array",
+            "items": {
+              "type": "string"
             }
           }
         },
