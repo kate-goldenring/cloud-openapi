@@ -1,7 +1,7 @@
 {
   "openapi": "3.0.1",
   "info": {
-    "title": "Fermyon.Cloud.Web",
+    "title": "Fermyon Cloud API",
     "version": "1.0"
   },
   "paths": {
@@ -377,6 +377,61 @@
             "application/*+json": {
               "schema": {
                 "$ref": "#/components/schemas/UpdateAppCommand"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      },
+      "patch": {
+        "tags": [
+          "apps"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          },
+          {
+            "name": "Api-Version",
+            "in": "header",
+            "description": "The requested API version",
+            "schema": {
+              "type": "string",
+              "default": "1.0"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json-patch+json": {
+              "schema": {
+                "$ref": "#/components/schemas/PatchAppCommand"
+              }
+            },
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/PatchAppCommand"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/PatchAppCommand"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/PatchAppCommand"
               }
             }
           },
@@ -1603,6 +1658,135 @@
         }
       }
     },
+    "/api/payments/setup-checkout": {
+      "post": {
+        "tags": [
+          "payments"
+        ],
+        "parameters": [
+          {
+            "name": "Api-Version",
+            "in": "header",
+            "description": "The requested API version",
+            "schema": {
+              "type": "string",
+              "default": "1.0"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/PaymentIntegrationUrl"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PaymentIntegrationUrl"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PaymentIntegrationUrl"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/payments/customer-portal": {
+      "get": {
+        "tags": [
+          "payments"
+        ],
+        "parameters": [
+          {
+            "name": "Api-Version",
+            "in": "header",
+            "description": "The requested API version",
+            "schema": {
+              "type": "string",
+              "default": "1.0"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/PaymentIntegrationUrl"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PaymentIntegrationUrl"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PaymentIntegrationUrl"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/payments/plans": {
+      "get": {
+        "tags": [
+          "payments"
+        ],
+        "parameters": [
+          {
+            "name": "Api-Version",
+            "in": "header",
+            "description": "The requested API version",
+            "schema": {
+              "type": "string",
+              "default": "1.0"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Plan"
+                  }
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Plan"
+                  }
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Plan"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/api/personal-access-tokens": {
       "post": {
         "tags": [
@@ -2049,6 +2233,54 @@
         }
       }
     },
+    "/api/support": {
+      "post": {
+        "tags": [
+          "support"
+        ],
+        "parameters": [
+          {
+            "name": "Api-Version",
+            "in": "header",
+            "description": "The requested API version",
+            "schema": {
+              "type": "string",
+              "default": "1.0"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json-patch+json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateSupportTicketCommand"
+              }
+            },
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateSupportTicketCommand"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateSupportTicketCommand"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateSupportTicketCommand"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
     "/api/variable-pairs": {
       "post": {
         "tags": [
@@ -2213,21 +2445,36 @@
         "type": "object",
         "properties": {
           "plan": {
-            "$ref": "#/components/schemas/AccountPlan"
+            "$ref": "#/components/schemas/AccountPlanRecord"
           },
           "isMarketingEmailOn": {
             "type": "boolean"
+          },
+          "createdAt": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
           }
         },
         "additionalProperties": false
       },
-      "AccountPlan": {
+      "AccountPlanRecord": {
         "type": "object",
         "properties": {
           "accountType": {
             "$ref": "#/components/schemas/AccountPlanType"
           },
           "cancelAt": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "cycleStartDate": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "cycleEndDate": {
             "type": "string",
             "format": "date-time",
             "nullable": true
@@ -2238,14 +2485,16 @@
       "AccountPlanType": {
         "enum": [
           "Free",
-          "Growth"
+          "Growth",
+          "Enterprise"
         ],
         "type": "string"
       },
       "AccountProvider": {
         "enum": [
           "GitHub",
-          "DeviceFlow"
+          "DeviceFlow",
+          "GitHubPersonalToken"
         ],
         "type": "string"
       },
@@ -2331,6 +2580,10 @@
             "items": {
               "$ref": "#/components/schemas/AppChannelListItem"
             }
+          },
+          "domain": {
+            "type": "string",
+            "nullable": true
           }
         },
         "additionalProperties": false
@@ -2573,6 +2826,34 @@
         },
         "additionalProperties": false
       },
+      "ComponentMetadata": {
+        "type": "object",
+        "properties": {
+          "description": {
+            "type": "string",
+            "nullable": true
+          },
+          "allowedHttpHosts": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "keyValueStores": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "databases": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        },
+        "additionalProperties": false
+      },
       "CreateAppCommand": {
         "required": [
           "name",
@@ -2587,6 +2868,9 @@
           "storageId": {
             "minLength": 1,
             "type": "string"
+          },
+          "lockfile": {
+            "$ref": "#/components/schemas/LockedManifest"
           }
         },
         "additionalProperties": false
@@ -2671,6 +2955,21 @@
         "properties": {
           "name": {
             "minLength": 1,
+            "type": "string"
+          }
+        },
+        "additionalProperties": false
+      },
+      "CreateSupportTicketCommand": {
+        "required": [
+          "category"
+        ],
+        "type": "object",
+        "properties": {
+          "category": {
+            "$ref": "#/components/schemas/TicketCategory"
+          },
+          "details": {
             "type": "string"
           }
         },
@@ -2855,11 +3154,126 @@
         },
         "additionalProperties": false
       },
+      "LockedComponent": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "metadata": {
+            "$ref": "#/components/schemas/ComponentMetadata"
+          },
+          "env": {
+            "type": "object",
+            "additionalProperties": {
+              "type": "string"
+            }
+          },
+          "config": {
+            "type": "object",
+            "additionalProperties": {
+              "type": "string"
+            }
+          }
+        },
+        "additionalProperties": false
+      },
+      "LockedManifest": {
+        "type": "object",
+        "properties": {
+          "spinLockVersion": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "metadata": {
+            "$ref": "#/components/schemas/LockedManifestMetadata"
+          },
+          "variables": {
+            "type": "object",
+            "additionalProperties": {
+              "$ref": "#/components/schemas/Variable"
+            }
+          },
+          "triggers": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/LockedTrigger"
+            }
+          },
+          "components": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/LockedComponent"
+            }
+          }
+        },
+        "additionalProperties": false
+      },
+      "LockedManifestMetadata": {
+        "type": "object",
+        "properties": {
+          "description": {
+            "type": "string",
+            "nullable": true
+          },
+          "name": {
+            "type": "string",
+            "nullable": true
+          },
+          "version": {
+            "type": "string",
+            "nullable": true
+          },
+          "origin": {
+            "type": "string",
+            "nullable": true
+          },
+          "trigger": {
+            "type": "object",
+            "additionalProperties": {
+              "nullable": true
+            }
+          }
+        },
+        "additionalProperties": false
+      },
+      "LockedTrigger": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "triggerType": {
+            "type": "string"
+          },
+          "triggerConfig": {
+            "type": "object",
+            "additionalProperties": {
+              "type": "string",
+              "nullable": true
+            }
+          }
+        },
+        "additionalProperties": false
+      },
       "PatchAccountDetailsCommand": {
         "type": "object",
         "properties": {
           "isMarketingEmailOn": {
             "$ref": "#/components/schemas/BooleanField"
+          }
+        },
+        "additionalProperties": false
+      },
+      "PatchAppCommand": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "domain": {
+            "$ref": "#/components/schemas/StringField"
           }
         },
         "additionalProperties": false
@@ -2888,6 +3302,15 @@
           },
           "activeRevisionId": {
             "$ref": "#/components/schemas/GuidNullableField"
+          }
+        },
+        "additionalProperties": false
+      },
+      "PaymentIntegrationUrl": {
+        "type": "object",
+        "properties": {
+          "url": {
+            "type": "string"
           }
         },
         "additionalProperties": false
@@ -2956,6 +3379,20 @@
           "id": {
             "type": "string",
             "format": "uuid"
+          }
+        },
+        "additionalProperties": false
+      },
+      "Plan": {
+        "type": "object",
+        "properties": {
+          "accountPlanType": {
+            "$ref": "#/components/schemas/AccountPlanType"
+          },
+          "price": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
           }
         },
         "additionalProperties": false
@@ -3145,6 +3582,14 @@
         },
         "additionalProperties": false
       },
+      "TicketCategory": {
+        "enum": [
+          "TechnicalHelp",
+          "BillingHelp",
+          "SomethingElse"
+        ],
+        "type": "string"
+      },
       "TokenInfo": {
         "required": [
           "expiration",
@@ -3264,6 +3709,19 @@
             "items": {
               "$ref": "#/components/schemas/UpdateEnvironmentVariableDto"
             }
+          }
+        },
+        "additionalProperties": false
+      },
+      "Variable": {
+        "type": "object",
+        "properties": {
+          "default": {
+            "type": "string",
+            "nullable": true
+          },
+          "secret": {
+            "type": "boolean"
           }
         },
         "additionalProperties": false

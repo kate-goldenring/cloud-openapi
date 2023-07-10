@@ -31,6 +31,7 @@ Class | Method | HTTP request | Description
 *AppsApi* | [**api_apps_get**](docs/AppsApi.md#api_apps_get) | **GET** /api/apps | 
 *AppsApi* | [**api_apps_id_delete**](docs/AppsApi.md#api_apps_id_delete) | **DELETE** /api/apps/{id} | 
 *AppsApi* | [**api_apps_id_get**](docs/AppsApi.md#api_apps_id_get) | **GET** /api/apps/{id} | 
+*AppsApi* | [**api_apps_id_patch**](docs/AppsApi.md#api_apps_id_patch) | **PATCH** /api/apps/{id} | 
 *AppsApi* | [**api_apps_id_put**](docs/AppsApi.md#api_apps_id_put) | **PUT** /api/apps/{id} | 
 *AppsApi* | [**api_apps_id_request_count_get**](docs/AppsApi.md#api_apps_id_request_count_get) | **GET** /api/apps/{id}/request-count | 
 *AppsApi* | [**api_apps_post**](docs/AppsApi.md#api_apps_post) | **POST** /api/apps | 
@@ -57,6 +58,9 @@ Class | Method | HTTP request | Description
 *OciApi* | [**api_oci_name_blobs_uploads_post**](docs/OciApi.md#api_oci_name_blobs_uploads_post) | **POST** /api/oci/{name}/blobs/uploads | 
 *OciApi* | [**api_oci_name_manifests_reference_head**](docs/OciApi.md#api_oci_name_manifests_reference_head) | **HEAD** /api/oci/{name}/manifests/{reference} | 
 *OciApi* | [**api_oci_name_manifests_reference_put**](docs/OciApi.md#api_oci_name_manifests_reference_put) | **PUT** /api/oci/{name}/manifests/{reference} | 
+*PaymentsApi* | [**api_payments_customer_portal_get**](docs/PaymentsApi.md#api_payments_customer_portal_get) | **GET** /api/payments/customer-portal | 
+*PaymentsApi* | [**api_payments_plans_get**](docs/PaymentsApi.md#api_payments_plans_get) | **GET** /api/payments/plans | 
+*PaymentsApi* | [**api_payments_setup_checkout_post**](docs/PaymentsApi.md#api_payments_setup_checkout_post) | **POST** /api/payments/setup-checkout | 
 *PersonalAccessTokensApi* | [**api_personal_access_tokens_get**](docs/PersonalAccessTokensApi.md#api_personal_access_tokens_get) | **GET** /api/personal-access-tokens | 
 *PersonalAccessTokensApi* | [**api_personal_access_tokens_id_delete**](docs/PersonalAccessTokensApi.md#api_personal_access_tokens_id_delete) | **DELETE** /api/personal-access-tokens/{id} | 
 *PersonalAccessTokensApi* | [**api_personal_access_tokens_post**](docs/PersonalAccessTokensApi.md#api_personal_access_tokens_post) | **POST** /api/personal-access-tokens | 
@@ -66,6 +70,7 @@ Class | Method | HTTP request | Description
 *RevisionsApi* | [**api_revisions_get**](docs/RevisionsApi.md#api_revisions_get) | **GET** /api/revisions | 
 *RevisionsApi* | [**api_revisions_post**](docs/RevisionsApi.md#api_revisions_post) | **POST** /api/revisions | 
 *StoragesApi* | [**api_storages_get**](docs/StoragesApi.md#api_storages_get) | **GET** /api/storages | 
+*SupportApi* | [**api_support_post**](docs/SupportApi.md#api_support_post) | **POST** /api/support | 
 *VariablePairsApi* | [**api_variable_pairs_delete**](docs/VariablePairsApi.md#api_variable_pairs_delete) | **DELETE** /api/variable-pairs | 
 *VariablePairsApi* | [**api_variable_pairs_get**](docs/VariablePairsApi.md#api_variable_pairs_get) | **GET** /api/variable-pairs | 
 *VariablePairsApi* | [**api_variable_pairs_post**](docs/VariablePairsApi.md#api_variable_pairs_post) | **POST** /api/variable-pairs | 
@@ -74,7 +79,7 @@ Class | Method | HTTP request | Description
 ## Documentation For Models
 
  - [AccountDetails](docs/AccountDetails.md)
- - [AccountPlan](docs/AccountPlan.md)
+ - [AccountPlanRecord](docs/AccountPlanRecord.md)
  - [AccountPlanType](docs/AccountPlanType.md)
  - [AccountProvider](docs/AccountProvider.md)
  - [ActivateDeviceCodeCommand](docs/ActivateDeviceCodeCommand.md)
@@ -90,11 +95,13 @@ Class | Method | HTTP request | Description
  - [ChannelItemPage](docs/ChannelItemPage.md)
  - [ChannelRevisionSelectionStrategy](docs/ChannelRevisionSelectionStrategy.md)
  - [ChannelRevisionSelectionStrategyField](docs/ChannelRevisionSelectionStrategyField.md)
+ - [ComponentMetadata](docs/ComponentMetadata.md)
  - [CreateAppCommand](docs/CreateAppCommand.md)
  - [CreateChannelCommand](docs/CreateChannelCommand.md)
  - [CreateDeviceCodeCommand](docs/CreateDeviceCodeCommand.md)
  - [CreateKeyValuePairCommand](docs/CreateKeyValuePairCommand.md)
  - [CreatePersonalAccessTokenCommand](docs/CreatePersonalAccessTokenCommand.md)
+ - [CreateSupportTicketCommand](docs/CreateSupportTicketCommand.md)
  - [CreateTokenCommand](docs/CreateTokenCommand.md)
  - [CreateVariablePairCommand](docs/CreateVariablePairCommand.md)
  - [DeleteVariablePairCommand](docs/DeleteVariablePairCommand.md)
@@ -106,11 +113,18 @@ Class | Method | HTTP request | Description
  - [GetVariablesQuery](docs/GetVariablesQuery.md)
  - [GuidNullableField](docs/GuidNullableField.md)
  - [HealthCheckResult](docs/HealthCheckResult.md)
+ - [LockedComponent](docs/LockedComponent.md)
+ - [LockedManifest](docs/LockedManifest.md)
+ - [LockedManifestMetadata](docs/LockedManifestMetadata.md)
+ - [LockedTrigger](docs/LockedTrigger.md)
  - [PatchAccountDetailsCommand](docs/PatchAccountDetailsCommand.md)
+ - [PatchAppCommand](docs/PatchAppCommand.md)
  - [PatchChannelCommand](docs/PatchChannelCommand.md)
+ - [PaymentIntegrationUrl](docs/PaymentIntegrationUrl.md)
  - [PersonalAccessTokenItem](docs/PersonalAccessTokenItem.md)
  - [PersonalAccessTokenItemPage](docs/PersonalAccessTokenItemPage.md)
  - [PersonalAccessTokenValue](docs/PersonalAccessTokenValue.md)
+ - [Plan](docs/Plan.md)
  - [RefreshTokenCommand](docs/RefreshTokenCommand.md)
  - [RegisterRevisionCommand](docs/RegisterRevisionCommand.md)
  - [RevisionComponentDto](docs/RevisionComponentDto.md)
@@ -118,12 +132,14 @@ Class | Method | HTTP request | Description
  - [RevisionItemPage](docs/RevisionItemPage.md)
  - [StringField](docs/StringField.md)
  - [StringPage](docs/StringPage.md)
+ - [TicketCategory](docs/TicketCategory.md)
  - [TokenInfo](docs/TokenInfo.md)
  - [UpdateAppCommand](docs/UpdateAppCommand.md)
  - [UpdateChannelCommand](docs/UpdateChannelCommand.md)
  - [UpdateDesiredStatusCommand](docs/UpdateDesiredStatusCommand.md)
  - [UpdateEnvironmentVariableDto](docs/UpdateEnvironmentVariableDto.md)
  - [UpdateEnvironmentVariableDtoListField](docs/UpdateEnvironmentVariableDtoListField.md)
+ - [Variable](docs/Variable.md)
  - [VariablesList](docs/VariablesList.md)
 
 
